@@ -6,10 +6,20 @@ namespace mars_rover
     {
         static void Main(string[] args)
         {
-            //InputParser inputParser = new InputParser();
-            //inputParser.ParsePlateauInput();
-            //var initialPos = inputParser.ParseLandingPosition();
-            //var newPos = inputParser.ParseInstructions(initialPos);
+          
+            InputProcessor inputProcessor = new();
+            InputParser inputParser = new(inputProcessor);
+
+            PlateauSize plateauSize = inputParser.ParsePlateauInput();
+            Rover rover1= inputParser.ParseLandingPosition();
+            List<Instruction> rover1Instructions = inputParser.ParseInstructions();
+
+            Console.WriteLine($"Current Pos: x: {rover1.CurrentPosition.x}, y: {rover1.CurrentPosition.y}, Facing: {rover1.CurrentPosition.Facing}");
+
+           rover1.Movement(rover1Instructions);
+
+            Console.WriteLine($"New Pos: x: {rover1.CurrentPosition.x}, y: {rover1.CurrentPosition.y}, Facing: {rover1.CurrentPosition.Facing}");
+
         }
     }
 }

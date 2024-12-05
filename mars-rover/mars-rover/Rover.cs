@@ -16,6 +16,16 @@ namespace mars_rover
 
         public Position CurrentPosition {  get; set; }
 
+        public Position Movement(List<Instruction> instructions)
+        {
+            foreach (Instruction instruction in instructions) 
+            {
+                if (instruction == Instruction.L || instruction == Instruction.R) Rotate(instruction);
+                else if (instruction == Instruction.M) Move(instruction);
+            }
+            return CurrentPosition;
+        }
+
         public Position Rotate(Instruction instruction)
         {
             while (true)

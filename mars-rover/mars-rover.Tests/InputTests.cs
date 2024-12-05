@@ -35,10 +35,12 @@ namespace mars_rover.Tests
             mockInputProcessor.Setup(input => input.ReadInput()).Returns("1 2 N");
             var parser = new InputParser(mockInputProcessor.Object);
 
-            Position expectedOutput = new Position(1, 2, Direction.N);
+            Position newPos = new Position(1, 2, Direction.N);
+            Rover expectedOutput = new Rover(newPos);
+                
 
             //act
-            Position result = parser.ParseLandingPosition();
+            Rover result = parser.ParseLandingPosition();
 
             //assert
             result.Should().BeEquivalentTo(expectedOutput);

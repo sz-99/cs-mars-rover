@@ -39,7 +39,7 @@ namespace mars_rover.Input
             }
         }
 
-        public Position ParseLandingPosition()
+        public Rover ParseLandingPosition()
         {
             Position position = new(0,0,Direction.N);
             while (true)
@@ -75,14 +75,14 @@ namespace mars_rover.Input
                         };
                     }
                     else break;
-                    return position;
+                    return new Rover(position);
                 }
                 else
                 {
                     Console.WriteLine("Plateau input is invalid, please try again");
                 }
             }
-            return position;
+            return new Rover(position);
 
 
         }
