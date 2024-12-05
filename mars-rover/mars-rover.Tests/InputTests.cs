@@ -5,7 +5,7 @@ using Moq;
 
 namespace mars_rover.Tests
 {
-    public class Tests
+    public class InputTests
     {
       
 
