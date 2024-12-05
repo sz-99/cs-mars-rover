@@ -4,6 +4,10 @@
     {
         static void Main(string[] args)
         {
+            InputParser inputParser = new InputParser();
+            inputParser.ParsePlateauInput();
+            var initialPos = inputParser.ParseLandingPosition();
+            var newPos = inputParser.ParseInstructions(initialPos);
         }
     }
 }
