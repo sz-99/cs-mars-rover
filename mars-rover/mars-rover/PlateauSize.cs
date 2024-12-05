@@ -14,8 +14,8 @@ namespace mars_rover
             PlateauY = plateauY;
         }
 
-        protected int PlateauX {  get; set; }
-        protected int PlateauY { get; set; }
+        public int PlateauX {  get; set; }
+        public int PlateauY { get; set; }
 
      
 

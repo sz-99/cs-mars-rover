@@ -1,4 +1,4 @@
-﻿namespace mars_rover
+﻿namespace mars_rover.Input
 {
     public enum Direction
     {
@@ -7,6 +7,6 @@
         S,
         W
     }
-        
-    
+
+
 }
