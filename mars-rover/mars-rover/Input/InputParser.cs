@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using mars_rover.Input.enums;
+using mars_rover.Objects;
 using mars_rover.UI;
 
 namespace mars_rover.Input
@@ -33,8 +34,8 @@ namespace mars_rover.Input
                     {
                         string[] inputArr = input.Split(' ');
                         var inputNums = inputArr.Select(n => int.Parse(n)).ToList();
-                        Console.WriteLine($"A plateau of size x:{inputNums[0]} and y:{inputNums[1]} has been created!");
-                        return new Plateau(inputNums[0], inputNums[1]);
+                        Console.WriteLine($"A new plateau of size x:{inputNums[0]} and y:{inputNums[1]} has been created!");
+                        return Plateau.GetInstance(inputNums[0], inputNums[1]);
                     }
                     else
                     {
@@ -88,14 +89,21 @@ namespace mars_rover.Input
                             };
                         }
                         //else break;
-                        Console.WriteLine($"A Rover has been created at the position x:{position.x} and y:{position.y}, facing {position.Facing}!");
-                        return new Rover(position);
+                        
+                        if (!Plateau.IsPositionFilled(position))
+                        {
+                            Rover newRover = new Rover(position);
+                            Plateau.RoverPositions.Add(newRover, position);
+                            Console.WriteLine($"A Rover has been created at the position x:{position.x} and y:{position.y}, facing {position.Facing}!\n----------------");
+                            return newRover;
+                        }
+                        else { Console.WriteLine("Position is filled by another rover..."); }
 
 
                     }
                     else
                     {
-                        Console.WriteLine("Plateau input is invalid, please try again\n----------------");
+                        Console.WriteLine("Landing Position is invalid, please try again\n----------------");
                     }
                 }
 
@@ -155,6 +163,11 @@ namespace mars_rover.Input
             }
         }
 
+        public bool StopRunning()
+        {
+            UserInterface.IsRunning = false;
+            return UserInterface.IsRunning;
+        }
     }
 }
 

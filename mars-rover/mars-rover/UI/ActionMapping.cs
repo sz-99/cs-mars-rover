@@ -23,7 +23,8 @@ namespace mars_rover.UI
                 case UserAction.MoveRover: 
                     inputParser.ParseInstructions(); break;
 
-                case UserAction.Quit: break;
+                case UserAction.Quit:
+                    inputParser.StopRunning(); break;
 
                 default: ui.PromptForAction(); break;
             }

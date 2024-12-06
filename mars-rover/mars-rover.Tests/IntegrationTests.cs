@@ -1,7 +1,7 @@
 using FluentAssertions;
-using mars_rover;
 using mars_rover.Input;
 using mars_rover.Input.enums;
+using mars_rover.Objects;
 using Moq;
 
 namespace mars_rover.Tests

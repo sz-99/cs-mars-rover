@@ -9,6 +9,7 @@ namespace mars_rover.UI
 {
     public class UserInterface
     {
+        public static bool IsRunning { get; set; } = true;
         public UserAction PromptForAction()
         {
             while (true)

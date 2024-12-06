@@ -1,4 +1,5 @@
 ﻿using mars_rover.Input.enums;
+using mars_rover.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mars_rover
+namespace mars_rover.Objects
 {
     public class Rover
     {
@@ -14,7 +14,7 @@ namespace mars_rover
             CurrentPosition = currentPosition;
         }
 
-        public Position CurrentPosition {  get; set; }
+        public Position CurrentPosition { get; set; }
 
         public Position Movement(List<Instruction> instructions)
         {
@@ -61,18 +61,18 @@ namespace mars_rover
                     return CurrentPosition;
                 }
                 else { Console.WriteLine("Invalid Instruction, please try again.\n----------------"); }
-                
+
             }
         }
 
-        public Position Move (Instruction instruction)
+        public Position Move(Instruction instruction)
         {
             if (instruction == Instruction.M)
             {
                 if (CurrentPosition.Facing == Direction.N) CurrentPosition.y += 1;
                 else if (CurrentPosition.Facing == Direction.E) CurrentPosition.x += 1;
                 else if (CurrentPosition.Facing == Direction.S) CurrentPosition.y -= 1;
-                else if(CurrentPosition.Facing == Direction.W) CurrentPosition.x -= 1;
+                else if (CurrentPosition.Facing == Direction.W) CurrentPosition.x -= 1;
 
                 return CurrentPosition;
             }
@@ -86,15 +86,15 @@ namespace mars_rover
                 if (instruction == Instruction.F)
                 {
                     if (CurrentPosition.Facing == Direction.S)
-                          CurrentPosition.Facing = Direction.N;
-                    else if (CurrentPosition.Facing == Direction.W) 
-                                CurrentPosition.Facing = Direction.E;
+                        CurrentPosition.Facing = Direction.N;
+                    else if (CurrentPosition.Facing == Direction.W)
+                        CurrentPosition.Facing = Direction.E;
                     else CurrentPosition.Facing += 2;
-                    
+
                     return CurrentPosition;
                 }
-               
-                
+
+
                 else { Console.WriteLine("Invalid Instruction, please try again.\n----------------"); }
 
             }

@@ -12,11 +12,13 @@ namespace mars_rover
             UserInterface ui = new UserInterface();
             InputParser inputParser = new InputParser(new InputProcessor());
 
-            while(true)
+            while(UserInterface.IsRunning) //?
             {
                 UserAction action = ui.PromptForAction();
 
                 ActionMapping actionMapping = new ActionMapping(action, inputParser);
+
+
 
                 LogicMapping logicMapping = new LogicMapping(inputParser.ParseLandingPosition(), inputParser.ParseInstructions());
 
