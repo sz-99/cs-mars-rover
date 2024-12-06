@@ -1,4 +1,4 @@
-﻿namespace mars_rover.Input
+﻿namespace mars_rover.Input.enums
 {
 
     public enum Instruction

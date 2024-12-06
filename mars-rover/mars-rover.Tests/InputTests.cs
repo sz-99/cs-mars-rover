@@ -1,6 +1,7 @@
 using FluentAssertions;
 using mars_rover;
 using mars_rover.Input;
+using mars_rover.Input.enums;
 using Moq;
 
 namespace mars_rover.Tests
@@ -17,10 +18,10 @@ namespace mars_rover.Tests
             mockInputProcessor.Setup(input => input.ReadInput()).Returns("5 5");
             var parser = new InputParser(mockInputProcessor.Object);
 
-            PlateauSize expectedOutput = new PlateauSize(5, 5);
+            Plateau expectedOutput = new Plateau(5, 5);
 
             //act
-            PlateauSize result = parser.ParsePlateauInput();
+            Plateau result = parser.ParsePlateauInput();
 
             //assert
             Assert.AreEqual(expectedOutput.PlateauX, result.PlateauX);

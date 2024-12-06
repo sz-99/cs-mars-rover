@@ -1,6 +1,7 @@
 using FluentAssertions;
 using mars_rover;
 using mars_rover.Input;
+using mars_rover.Input.enums;
 using Moq;
 
 namespace mars_rover.Tests
@@ -31,7 +32,7 @@ namespace mars_rover.Tests
             InputParser inputParser = new(mockInputProcessor.Object);
 
             //act
-            PlateauSize plateauSize = inputParser.ParsePlateauInput();
+            Plateau plateauSize = inputParser.ParsePlateauInput();
             Rover rover1 = inputParser.ParseLandingPosition();
             List<Instruction> rover1Instructions = inputParser.ParseInstructions();
 
@@ -67,7 +68,7 @@ namespace mars_rover.Tests
             InputParser inputParser = new(mockInputProcessor.Object);
 
             //act
-            PlateauSize plateauSize = inputParser.ParsePlateauInput();
+            Plateau plateauSize = inputParser.ParsePlateauInput();
             Rover rover1 = inputParser.ParseLandingPosition();
             List<Instruction> rover1Instructions = inputParser.ParseInstructions();
 

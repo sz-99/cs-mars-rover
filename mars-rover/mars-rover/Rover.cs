@@ -1,4 +1,4 @@
-﻿using mars_rover.Input;
+﻿using mars_rover.Input.enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +18,14 @@ namespace mars_rover
 
         public Position Movement(List<Instruction> instructions)
         {
-            foreach (Instruction instruction in instructions) 
+            if (instructions != null)
             {
-                if (instruction == Instruction.L || instruction == Instruction.R) Rotate(instruction);
-                else if (instruction == Instruction.M) Move(instruction);
+                foreach (Instruction instruction in instructions)
+                {
+                    if (instruction == Instruction.L || instruction == Instruction.R) Rotate(instruction);
+                    else if (instruction == Instruction.M) Move(instruction);
+                }
+                Console.WriteLine($"New Position @ \nx:{CurrentPosition.x}, y:{CurrentPosition.y}, facing {CurrentPosition.Facing}");
             }
             return CurrentPosition;
         }

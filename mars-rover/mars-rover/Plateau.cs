@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace mars_rover
 {
-    public class PlateauSize
+    public class Plateau
     {
-        public PlateauSize(int plateauX, int plateauY)
+        public Plateau(int plateauX, int plateauY)
         {
             PlateauX = plateauX;
             PlateauY = plateauY;

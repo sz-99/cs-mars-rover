@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mars_rover.Input
+namespace mars_rover.Input.enums
 {
     public class Position
     {
