@@ -112,7 +112,7 @@ namespace mars_rover.Input
             while (true)
             {
                try
-               { _inputProcessor.WriteOutput("Please input a series of instructions, consisting only of letters L(Left),R(Right),M(Move).");
+               { _inputProcessor.WriteOutput("Please input a series of instructions, consisting only of letters L(Left),R(Right),M(Move), F(Flip).");
                 string input = _inputProcessor.ReadInput();
 
                     if (!string.IsNullOrEmpty(input))
@@ -130,6 +130,10 @@ namespace mars_rover.Input
                             else if (char.ToUpper(c) == 'M')
                             {
                                 instructions.Add(Instruction.M);
+                            }
+                            else if (char.ToUpper(c) == 'F')
+                            {
+                                instructions.Add(Instruction.F);
                             }
 
                         }

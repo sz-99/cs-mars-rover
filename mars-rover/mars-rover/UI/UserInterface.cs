@@ -30,13 +30,13 @@ namespace mars_rover.UI
                         case 'X': return UserAction.Quit;
                         default:
                             {
-                                Console.WriteLine("Input invalid, please try again.");
+                                Console.WriteLine("Input invalid, please try again.\n----------------");
                                 return PromptForAction();
                             }
                     }
 
                 }
-                else Console.WriteLine("Input invalid, please try again.");
+                else Console.WriteLine("Input invalid, please try again.\n----------------");
                 
             }
         }

@@ -22,10 +22,12 @@ namespace mars_rover
             {
                 foreach (Instruction instruction in instructions)
                 {
-                    if (instruction == Instruction.L || instruction == Instruction.R) Rotate(instruction);
+                    if (instruction == Instruction.L
+                        || instruction == Instruction.R) Rotate(instruction);
                     else if (instruction == Instruction.M) Move(instruction);
+                    else if (instruction == Instruction.F) Rotate180(instruction);
                 }
-                Console.WriteLine($"New Position @ \nx:{CurrentPosition.x}, y:{CurrentPosition.y}, facing {CurrentPosition.Facing}");
+                Console.WriteLine($"New Position @ \nx:{CurrentPosition.x}, y:{CurrentPosition.y}, facing {CurrentPosition.Facing}\n----------------");
             }
             return CurrentPosition;
         }
@@ -58,7 +60,7 @@ namespace mars_rover
                     }
                     return CurrentPosition;
                 }
-                else { Console.WriteLine("Invalid Instruction, please try again."); }
+                else { Console.WriteLine("Invalid Instruction, please try again.\n----------------"); }
                 
             }
         }
@@ -75,6 +77,27 @@ namespace mars_rover
                 return CurrentPosition;
             }
             else return CurrentPosition;
+        }
+
+        public Position Rotate180(Instruction instruction)
+        {
+            while (true)
+            {
+                if (instruction == Instruction.F)
+                {
+                    if (CurrentPosition.Facing == Direction.S)
+                          CurrentPosition.Facing = Direction.N;
+                    else if (CurrentPosition.Facing == Direction.W) 
+                                CurrentPosition.Facing = Direction.E;
+                    else CurrentPosition.Facing += 2;
+                    
+                    return CurrentPosition;
+                }
+               
+                
+                else { Console.WriteLine("Invalid Instruction, please try again.\n----------------"); }
+
+            }
         }
 
     }
